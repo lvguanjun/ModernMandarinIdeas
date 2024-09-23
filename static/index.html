@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉语新解</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>汉语新解</h1>
+        <input type="text" id="wordInput" placeholder="说吧，他们有用那个词来忽悠你了">
+        <button onclick="fetchSVG()">一阵见血</button>
+        <div id="loading" style="display:none;">耐心等待两分钟, 加载中...</div>
+        <div id="svgContainer">
+          <!-- 初始 SVG 展示 -->
+          <svg width="400" height="600" xmlns="http://www.w3.org/2000/svg">
+            <text x="200" y="40" font-family="楷体" font-size="24" text-anchor="middle" fill="#333">汉语新解</text>
+            <line x1="40" y1="70" x2="360" y2="70" stroke="#888" stroke-width="1"/>
+            <text x="200" y="100" font-family="宋体" font-size="18" text-anchor="middle" fill="#555">
+              延迟退休
+              <tspan x="200" dy="25" font-size="14">yán chí tuì xiū</tspan>
+              <tspan x="200" dy="25" font-size="14">Delayed Retirement</tspan>
+            </text>
+            <text x="200" y="200" font-family="汇文明朝体" font-size="16" fill="#666" text-anchor="middle">
+              <tspan x="200" dy="0">人生马拉松中的加时赛，</tspan>
+              <tspan x="200" dy="25">政府慷慨赠送的"额外工作券"。</tspan>
+              <tspan x="200" dy="25">一场由上而下的"工作延长保"，</tspan>
+              <tspan x="200" dy="25">让你在人生终点前再冲刺几圈。</tspan>
+              <tspan x="200" dy="25">青春已逝，但工作永恒，</tspan>
+              <tspan x="200" dy="25">这是对"干到死"的最佳诠释。</tspan>
+            </text>
+            <path d="M50 400 Q200 450 350 400" fill="none" stroke="#888" stroke-width="2"/>
+            <text x="200" y="480" font-family="Arial" font-size="14" text-anchor="middle" fill="#444">
+              工作是永恒的，像宇宙中的黑洞。
+            </text>
+            <rect x="320" y="520" width="60" height="60" fill="none" stroke="#AAA" stroke-width="1"/>
+            <circle cx="350" cy="550" r="20" fill="none" stroke="#AAA" stroke-width="1"/>
+          </svg>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
