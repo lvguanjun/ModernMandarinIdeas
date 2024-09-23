@@ -78,7 +78,7 @@ INITIALLIZATION = """你好，我是新汉语老师。我的任务是用批判�
 FEW_SHOT_PROMPT = [
     (
         "延迟退休",
-        """<svg width="400" height="600" xmlns="http://www.w3.org/2000/svg">
+        """<svg width="400" height="600" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
   <text x="200" y="40" font-family="楷体" font-size="24" text-anchor="middle" fill="#333">汉语新解</text>
   
   <line x1="40" y1="70" x2="360" y2="70" stroke="#888" stroke-width="1"/>

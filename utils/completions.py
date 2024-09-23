@@ -16,7 +16,6 @@ from utils.utils import get_svg_from_llm_resp, svg_to_png
 
 async def explain_word(word: str) -> str:
     url = OPENAI_BASE_URL + "/v1/chat/completions"
-    print(url)
     headers = {"Authorization": OPENAI_API_KEY}
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
     for prompt in FEW_SHOT_PROMPT:
