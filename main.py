@@ -60,7 +60,7 @@ async def explain(word_data: WordData):
     return {"svg": svg}
 
 
-@app.get("/svg-list", response_model=list[str])
+@app.get("/svg-list")
 async def read_svg_list():
     """返回SVG文件目录中的所有文件名"""
     # 异步获取文件列表
@@ -69,16 +69,16 @@ async def read_svg_list():
     return svg_files
 
 
-@app.get("/svg/{filename}", response_class=bytes)
+@app.get("/svg/{filename}")
 async def read_svg(filename: str):
     """根据文件名返回SVG文件内容"""
     filepath = os.path.join(OUTPUT_DIR, filename)
     if not filepath.endswith(".svg") or not os.path.exists(filepath):
         return JSONResponse(content={"error": "File not found"}, status_code=404)
-        # 异步读取文件内容
+    # 异步读取文件内容
     async with aiofiles.open(filepath, mode="rb") as file:
         content = await file.read()
-        return {"svg": content.decode("utf-8")}
+    return {"svg": content.decode("utf-8")}
 
 
 if __name__ == "__main__":
