@@ -14,7 +14,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-STATIC_DIR = "static/output"
+OUTPUT_DIR = "output"
 
-OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+
+MODERATIONS_BASE_URL = os.getenv("MODERATIONS_BASE_URL", "")
+MODERATIONS_API_KEY = os.getenv("MODERATIONS_API_KEY", "")

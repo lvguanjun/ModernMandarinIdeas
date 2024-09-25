@@ -14,7 +14,7 @@ import re
 
 import httpx
 
-from utils.config import STATIC_DIR
+from utils.config import OUTPUT_DIR
 
 
 def get_svg_from_llm_resp(resp: str) -> str:
@@ -33,8 +33,11 @@ def save_svg(word: str, svg: str):
     hash_object = hashlib.sha256(svg.encode())
     hash_hex = hash_object.hexdigest()[:6]
 
+    if not os.path.exists(OUTPUT_DIR):
+        os.makedirs(OUTPUT_DIR)
+
     # 设置 PNG 和 SVG 文件的路径
-    svg_path = os.path.join(STATIC_DIR, f"{word}_{hash_hex}.svg")
+    svg_path = os.path.join(OUTPUT_DIR, f"{word}_{hash_hex}.svg")
 
     # 保存 SVG 文件
     with open(svg_path, "w") as svg_file:
@@ -48,8 +51,8 @@ async def save_png_by_svg(word: str, svg: str):
 
     # 设置 PNG 和 SVG 文件的路径
     file_name = f"{word}_{hash_hex}"
-    png_file_path = os.path.join(STATIC_DIR, f"{file_name}.png")
-    svg_file_path = os.path.join(STATIC_DIR, f"{file_name}.svg")
+    png_file_path = os.path.join(OUTPUT_DIR, f"{file_name}.png")
+    svg_file_path = os.path.join(OUTPUT_DIR, f"{file_name}.svg")
 
     # 保存 SVG 文件
     with open(svg_file_path, "w") as svg_file:

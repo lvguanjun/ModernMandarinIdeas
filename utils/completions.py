@@ -40,7 +40,9 @@ async def explain_word(word: str) -> str:
         resp = await client.post(url, headers=headers, json=body)
         if not resp.is_success:
             raise ValueError(resp.text)
-    return resp.json()["choices"][0]["message"]["content"]
+    ans = resp.json()["choices"][0]["message"]["content"]
+    print(ans)
+    return ans
 
 
 async def generate_svg(word: str) -> bytes:
